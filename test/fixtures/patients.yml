@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phone_no: 1
+  user: one
+  appointment_date: 2024-04-26
+  age: 1
+
+two:
+  name: MyString
+  phone_no: 1
+  user: two
+  appointment_date: 2024-04-26
+  age: 1

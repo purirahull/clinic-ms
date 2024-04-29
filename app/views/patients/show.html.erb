@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<div class='container '>
+  <%= render @patient %>
+  <div class='d-flex mt-3'>
+  <%if current_user && current_user.receptionist? %>
+    <%= button_to "Destroy this patient", @patient, method: :delete , :class=>' bg-danger text-white p-2 border-0 ' %>
+    <%= link_to "Edit this patient", edit_patient_path(@patient) ,class: 'theme_button btn p-2' %> 
+  <%end%>
+  <%= link_to "Back to patients", patients_path  ,class: 'custom_grey_button btn'%>
+  </div>
+</div>

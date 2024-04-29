@@ -1,0 +1,51 @@
+<div id="<%= dom_id patient %>">
+
+<section class="h-100 w-100 gradient-custom-2">
+    <div class="row d-flex mt-5 h-100">
+      <div class="col-2 ">
+        <div class="card border-0 shadow-lg p-3 h-100">
+        
+        <% if patient.profile_image.present? %>
+        <%= image_tag patient.profile_image %>
+      <% else %>
+        <%= image_tag 'dummy.jpeg' %>
+      <% end %>        </div>
+      </div>
+      <div class="col-10">
+        <div class="card p-3 border-0 shadow-lg">
+        <p>
+         <strong>Name:</strong>
+          <%= patient.name %>
+        </p>
+
+        <p>
+        <strong>Age:</strong>
+        <%= patient.age %>
+      </p>
+        <p>
+          <strong>Phone no:</strong>
+          <%= patient.phone_no %>
+        </p>
+    
+        <p>
+          <strong>Assigned Doctor:</strong>
+          <%= @doctor_name %>
+        </p>
+    
+        <p>
+          <strong>Appointment date:</strong>
+          <%= patient.appointment_date  || '---'%>
+        </p>
+    
+        
+        <p>
+        <strong>Assigned by:</strong>
+        <%= @receptionist %>
+      </p>
+      
+
+
+      </div>
+    </div>
+</section>  
+</div>

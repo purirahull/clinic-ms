@@ -1,0 +1,41 @@
+
+<p style="color: green"><%= notice %></p>
+
+        <div class='mb-2 container-fluid d-flex justify-content-between'>
+            <h4>Patients Count : <%=@patients && @patients.size%></h4>
+            <div class="d-flex justify-content-end">
+              
+              <% if current_user && current_user.receptionist? %> 
+                <%= link_to "New patient", new_patient_path ,:class=>'btn mt-0 p-2 theme_button h-100' %>
+              <% end %>
+            </div>
+        </div>
+      <hr class="p-0 m-0 text-secondary" />
+          <div class="table-responsive bg-white container-fluid">
+              <table class="table table-striped mb-1">
+                  <thead  style={{  textOverflow: 'ellipsis',  whiteSpace: 'nowrap',   overFlow: 'hidden'}} >
+                        <tr>
+                          <th class="pt-3 pb-3 border-0">Name</th>
+                          <th class="pt-3 pb-3 border-0">Phone Number</th>
+                          <th class="pt-3 pb-3 border-0">Age</th>
+                          <th class="pt-3 pb-3 border-0">Appointemnt Date</th>
+                          <th class="pt-3 pb-3 border-0">Appointed Doctor</th>
+                          <th class="pt-3 pb-3 border-0">Registered By</th>
+
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                          <% @patients && @patients.each do |patient| %>
+                            <tr >
+                                <th class="pt-3 border-0" scope="row"> <%= link_to patient.name ,  patient %> </th>
+                                <td class="pt-3"> <%= patient.phone_no %> </td>
+                                <td class="pt-3"><%= patient.age %></td>
+                                <td class="pt-3"><%= patient.appointment_date %></td>
+                                <td class="pt-3"><%= User.find(patient.user_id).full_name || '-' %></td>
+                                <td class="pt-3"><%= User.find(patient.receptionist_id).full_name || '-' %></td>
+
+                            </tr>
+                          <% end %>
+                      </tbody>
+                    </table>

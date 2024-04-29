@@ -1,0 +1,9 @@
+<h1 class="mt-2 text-center">Edit Patient Record</h1>
+<div class='container' >
+<%= render "form", patient: @patient %>
+<br>
+<div>
+  <%= link_to "Show this patient", @patient , class: 'theme_button btn p-2' %> 
+  <%= link_to "Back to patients", patients_path  ,class: 'custom_grey_button btn' %>
+</div>
+</div>

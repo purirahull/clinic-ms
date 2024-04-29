@@ -1,0 +1,31 @@
+<div class='container shadow-lg  mt-3'>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  
+  const ctx = document.getElementById('myChart');
+   
+
+const x = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["Apr 20", "Apr 22", "APR 24", "APR 26"],
+      datasets: [{
+        label: 'No. Of Patients',
+        data:  <%= @graph_var[:patient_count] %>,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+ 
